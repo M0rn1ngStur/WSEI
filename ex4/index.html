@@ -1,392 +1,464 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-        <style>
-            body{
-                padding:0;
-                margin:0;
-                min-height:100vh;
-                font-family: sans-serif;
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            min-height: 100vh;
+            font-family: sans-serif;
+        }
+
+        #container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        #container>div {
+            height: 100vh;
+        }
+
+        .btn {
+            border: 1px solid #666;
+            box-shadow: none;
+            outline: none;
+            border-radius: 20px;
+            padding: 6px 26px;
+            margin: 4px 0;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            opacity: .85;
+        }
+
+        .bg-blue {
+            background-color: #1B98F8;
+            color: white;
+            margin: 16px 0;
+            padding: 8px 16px;
+            border: none;
+        }
+
+        #show-menu {
+            background: transparent;
+            color: blue;
+            display: none;
+        }
+
+        #menu {
+            background-color: #252a3a;
+            color: white;
+            width: 150px;
+            min-width: 150px;
+            font-size: 16px;
+            transition: height 1s;
+        }
+
+        ul {
+            margin: 5px 0;
+            padding-left: 10px;
+        }
+
+        li {
+            list-style-type: none;
+            padding: 5px 0;
+            padding-left: 10px;
+            cursor: pointer;
+        }
+
+        li.active {
+            background-color: #542a81;
+        }
+
+        li:hover {
+            background-color: #542a81;
+        }
+
+        .title {
+            padding: 2.5px 10px;
+            color: gray;
+        }
+
+        .color-gray {
+            color: gray;
+        }
+
+        #orange-block {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: orange;
+            border-radius: 1px;
+            margin-right: 5px;
+        }
+
+        #blue-block {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: blue;
+            border-radius: 1px;
+            margin-right: 5px;
+        }
+
+        #green-block {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: green;
+            border-radius: 1px;
+            margin-right: 5px;
+        }
+
+        #mailers {
+            width: 350px;
+            min-width: 350px;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        #mailers>div {
+            display: flex;
+            padding: 14px 16px;
+            border-bottom: 1px solid lightgray;
+            background-color: #fff;
+        }
+
+        #mailers>div:hover {
+            background-color: #eee
+        }
+
+        #mailers>div.active {
+            border-left: 6px solid #1B98F8;
+        }
+
+        .mailers-name {
+            font-size: 13px;
+            color: #999;
+            text-transform: uppercase;
+            overflow-y: auto;
+        }
+
+        .mailers-title {
+            color: black;
+            font-weight: bold;
+        }
+
+        .mailers-text {
+            font-size: 13px;
+            margin: 7px 0;
+            color: black;
+        }
+
+        .avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 3px;
+            margin-right: 8px;
+        }
+
+        #read-mail {
+            width: 100%;
+            overflow-y: auto;
+        }
+
+        .mail-title {
+            padding: 16px;
+            border-bottom: 1px solid lightgray;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .mail-subject {
+            font-size: 32px;
+        }
+
+        .from {
+            color: #1b98f8;
+            text-decoration: none;
+        }
+
+        .date {
+            color: #999;
+        }
+
+        .mail-text {
+            margin: 16px 16px;
+        }
+
+        .buttons {
+            text-align: right;
+        }
+
+        div#show-menu-div {
+            background-color: #252a3a;
+            z-index: 10;
+            height: auto;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        @media(max-width: 639px) {
+            #container {
+                flex-direction: column;
             }
-            #container{
-                display:flex;
-                min-height:100vh;
+
+            div#menu {
+                width: 100%;
+                height: 0;
+                min-width: auto;
             }
-            #container > div{
-                height:100vh;
+
+            #mailers {
+                width: 100%;
+                height: auto;
+                min-width: auto;
+                height: auto;
+                overflow-y: visible;
             }
-            .btn{
-                border:1px solid #666;
-                box-shadow:none;
-                outline:none;
-                border-radius: 20px;
-                padding: 6px 26px;
-                margin: 4px 0;
-                cursor:pointer;
+
+            #read-mail {
+                height: auto;
+                overflow-y: visible;
             }
-            .btn:hover{
-                opacity:.85;
+
+            #show-menu {
+                display: block;
+                text-align: right;
+                border: none;
             }
-            .bg-blue{
-                background-color: #1B98F8;
-                color:white;
-                margin: 16px 0;
-                padding: 8px 16px;
-                border:none;
+
+            div#menu.show {
+                height: auto;
             }
-            #show-menu{
-                background:transparent;
-                color:blue;
-                display:none;
-            }
-            #menu{
-                background-color: #252a3a;
-                color:white;
-                width:150px;
-                min-width: 150px;
-                font-size:16px;
-                transition: height 1s;
-            }
-            ul{
-                margin: 5px 0;
-                padding-left:10px;
-            }
-            li{
-                list-style-type:none;
-                padding: 5px 0;
-                padding-left: 10px;
-                cursor:pointer;
-            }
-            li.active{
-                background-color: #542a81;
-            }
-            li:hover{
-                background-color: #542a81;
-            }
-            .title{
-                padding: 2.5px 10px;
-                color:gray;
-            }
-            .color-gray{
-                color:gray;
-            }
-            #orange-block{
-                display:inline-block;
-                width:10px;
-                height:10px;
-                background-color:orange;
-                border-radius:1px;
-                margin-right:5px;
-            }
-            #blue-block{
-                display:inline-block;
-                width:10px;
-                height:10px;
-                background-color:blue;
-                border-radius:1px;
-                margin-right:5px;
-            }
-            #green-block{
-                display:inline-block;
-                width:10px;
-                height:10px;
-                background-color:green;
-                border-radius:1px;
-                margin-right:5px;
-            }
-            #mailers{
-                width:350px;
-                min-width: 350px;
-                height:100%;
-                overflow-y: auto;
-            }
-            #mailers > div{
-                display:flex;
-                padding:14px 16px;
-                border-bottom: 1px solid lightgray;
-                background-color:#fff;
-            }
-            #mailers > div:hover{
-                background-color: #eee
-            }
-            #mailers > div.active{
-                border-left: 6px solid #1B98F8;
-            }
-            .mailers-name{
-                font-size:13px;
-                color:#999;
-                text-transform: uppercase;
-                overflow-y: auto;
-            }
-            .mailers-title{
-                color:black;
-                font-weight:bold;
-            }
-            .mailers-text{
-                font-size:13px;
-                margin:7px 0;
-                color:black;
-            }
-            .avatar{
-                width:42px;
-                height:42px;
-                border-radius:3px;
-                margin-right:8px;
-            }
-            #read-mail{
-                width:100%;
-                overflow-y: auto;
-            }
-            .mail-title{
-                padding: 16px;
-                border-bottom: 1px solid lightgray;
-                display: flex;
-                justify-content: space-between;
-            }
-            .mail-subject{
-                font-size:32px;
-            }
-            .from{
-                color:#1b98f8;
-                text-decoration: none;
-            }
-            .date{
-                color:#999;
-            }
-            .mail-text{
-                margin: 16px 16px;
-            }
-            .buttons{
-                text-align:right;
-            }
-            div#show-menu-div{
-                background-color:#252a3a;
-                z-index:10;
-                height:auto;
-                display:flex;
-                justify-content: flex-end;
-            }
-            @media(max-width: 639px){
-                #container{
-                    flex-direction:column;
-                }
-                div#menu{
-                    width:100%;
-                    height:0;
-                    min-width:auto;
-                }
-                #mailers{
-                    width:100%;
-                    height:auto;
-                    min-width:auto;
-                    height:auto;
-                    overflow-y:visible;
-                }
-                #read-mail{
-                    height:auto;
-                    overflow-y:visible;
-                }
-                #show-menu{
-                    display:block;
-                    text-align:right;
-                    border:none;
-                }
-                div#menu.show{
-                    height:auto;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <div id='container'>
-            <div id="show-menu-div" style='text-align:right'>
-                <button type='button' class='btn' id="show-menu">Menu</button>
+        }
+    </style>
+</head>
+
+<body>
+    <div id='container'>
+        <div id="show-menu-div" style='text-align:right'>
+            <button type='button' class='btn' id="show-menu">Menu</button>
+        </div>
+        <div id='menu'>
+
+            <div id='hide-menu'>
+                <div style='text-align:center'>
+                    <button type='button' class='btn bg-blue'>Compose</button>
+                </div>
+                <ul>
+                    <li>Inbox&nbsp;<span class='color-gray'>(2)</span></li>
+                    <li>Important</li>
+                    <li class='active'>Sent</li>
+                    <li>Drafts</li>
+                    <li>Trash</li>
+                </ul>
+                <div class='title'>
+                    LABELS
+                </div>
+                <ul>
+                    <li><span id='orange-block'></span>Private</li>
+                    <li><span id='blue-block'></span>Job</li>
+                    <li><span id='green-block'></span>Flights</li>
+                </ul>
             </div>
-            <div id='menu'>
-                
-                <div id='hide-menu'>
-                    <div style='text-align:center'>
-                        <button type='button' class='btn bg-blue'>Compose</button>
+        </div>
+        <div id='mailers'>
+            <div>
+                <img class='avatar' src="images/p5.png" />
+                <div class='column'>
+                    <div class='mailers-name'>
+                        MAY JUNE
                     </div>
-                    <ul>
-                        <li>Inbox&nbsp;<span class='color-gray'>(2)</span></li>
-                        <li>Important</li>
-                        <li class='active'>Sent</li>
-                        <li>Drafts</li>
-                        <li>Trash</li>
-                    </ul>
-                    <div class='title'>
-                        LABELS
+                    <div class='mailers-title'>
+                        New York New Yoork
                     </div>
-                    <ul>
-                        <li><span id='orange-block'></span>Private</li>
-                        <li><span id='blue-block'></span>Job</li>
-                        <li><span id='green-block'></span>Flights</li>
-                    </ul>
-                </div>
-            </div>
-            <div id='mailers'>
-                <div>
-                    <img class='avatar' src="images/p5.png"/>
-                    <div class='column'>
-                        <div class='mailers-name'>
-                            MAY JUNE
-                        </div>
-                        <div class='mailers-title'>
-                            New York New Yoork
-                        </div>
-                        <div class='mailers-text'>
-                            Hey, confirm our meeting todat, Fifth Avenue. Hmm?
-                        </div>
-                    </div>
-                </div>
-                <div class='active'>
-                    <img class='avatar' src="images/p4.png"/>
-                    <div class='column'>
-                        <div class='mailers-name'>
-                            JOHNY CASH
-                        </div>
-                        <div class='mailers-title'>
-                            Re: Pull Requests
-                        </div>
-                        <div class='mailers-text'>
-                            Really, better give that money back. Papa Joe is waiting
-                        </div>
-                    </div>
-                </div>
-                <div class='active'>
-                    <img class='avatar' src="images/p3.png"/>
-                    <div class='column'>
-                        <div class='mailers-name'>
-                            YOUR WORDPRESS
-                        </div>
-                        <div class='mailers-title'>
-                            Last warning
-                        </div>
-                        <div class='mailers-text'>
-                            Your previous drupal site had 12 errors, 15 warnings. It sucks!
-                        </div>
-                    </div>
-                </div>
-                <div class=''>
-                    <img class='avatar' src="images/p2.png"/>
-                    <div class='column'>
-                        <div class='mailers-name'>
-                            JUNE RAY
-                        </div>
-                        <div class='mailers-title'>
-                            Re: That night
-                        </div>
-                        <div class='mailers-text'>
-                            Excepteur sint eccaecat cupidatat non proident, sunt in culpa.
-                        </div>
-                    </div>
-                </div>
-                <div class=''>
-                    <img class='avatar' src="images/p1.png"/>
-                    <div class='column'>
-                        <div class='mailers-name'>
-                            ANDREW CLEARWATER
-                        </div>
-                        <div class='mailers-title'>
-                            What about materials?
-                        </div>
-                        <div class='mailers-text'>
-                            Ut enim ad minim veniam, quls nostrud exercitation ullamco laboris nisl ut aliquip.
-                        </div>
-                    </div>
-                </div>
-                <div class=''>
-                    <img class='avatar' src="images/p6.png"/>
-                    <div class='column'>
-                        <div class='mailers-name'>
-                            CHRIS DUCK
-                        </div>
-                        <div class='mailers-title'>
-                            Donec sagittis dolor ut quam pharetra pretium varius in.
-                        </div>
-                        <div class='mailers-text'>
-                            Ut enim ad minim veniam, quls nostrud exercitation ullamco laboris nisl ut aliquip.
-                        </div>
-                    </div>
-                </div>
-                 <div class=''>
-                    <img class='avatar' src="images/p6.png"/>
-                    <div class='column'>
-                        <div class='mailers-name'>
-                            Noname Noname
-                        </div>
-                        <div class='mailers-title'>
-                            A thousand miles
-                        </div>
-                        <div class='mailers-text'>
-                            Making my way downtown
-                            Walking fast, faces pass and I'm homebound
-                            Staring blankly ahead
-                        </div>
+                    <div class='mailers-text'>
+                        Hey, confirm our meeting todat, Fifth Avenue. Hmm?
                     </div>
                 </div>
             </div>
-            <div id='read-mail'>
-                <div class='mail-title'>
-                    <div>
-                        <div class='mail-subject'>
-                            Aliquam ac feugiat dolor
-                        </div>
-                        <div class='mail-from'>
-                            From <a href='#' class='from'>Eno Uqa</a> at 
-                            <span class='date'>13 16pm, May 8, 2015</span>
-                        </div>
+            <div class='active'>
+                <img class='avatar' src="images/p4.png" />
+                <div class='column'>
+                    <div class='mailers-name'>
+                        JOHNY CASH
                     </div>
-                    <div class='buttons'>
-                        <button type='button' class='btn'>Reply</button>
-                        <button type='button' class='btn'>Forward</button>
-                        <button type='button' class='btn'>Move to</button>
+                    <div class='mailers-title'>
+                        Re: Pull Requests
+                    </div>
+                    <div class='mailers-text'>
+                        Really, better give that money back. Papa Joe is waiting
                     </div>
                 </div>
-                <div class='mail-text'>
-                    <blockquote>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum diam ex, tempor sed sagittis eget, tincidunt eu urna. In libero mauris, aliquet ac iaculis at, molestie vel sem. Aenean aliquam volutpat tortor id pellentesque. Sed nec fringilla sem, sit amet efficitur neque. Nulla euismod nibh eu est tempus, in sollicitudin nunc placerat. Phasellus porttitor orci id libero sagittis cursus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed mi risus, maximus nec rutrum id, eleifend vitae arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer ac turpis sed neque porta consequat vel quis ligula. Pellentesque eleifend orci vel ultricies vehicula. Fusce imperdiet tincidunt egestas. Ut id ipsum non ex sagittis convallis quis vel dui.
-                    <br><br>
-                    Suspendisse efficitur vehicula libero. Praesent sollicitudin ante ac pharetra mollis. Curabitur in diam id velit interdum pharetra quis quis nisi. Donec lorem tortor, rutrum vel posuere at, sodales quis elit. Phasellus pretium scelerisque velit, et auctor tortor ultrices at. Curabitur fringilla sem eu vestibulum dictum. Morbi vestibulum molestie ex, sed pretium sapien semper ac. Sed ac nunc vitae risus facilisis varius non eget nibh. Donec in auctor urna, sit amet commodo ipsum.
-                    <br><br>
-                    Morbi convallis augue risus, vitae vehicula lacus rutrum et. Pellentesque faucibus dolor ac nisi tempor aliquet. In bibendum ornare augue nec fringilla. Donec aliquet, lectus et pharetra dictum, magna dui ultrices eros, sit amet sollicitudin nunc erat at mauris. Nulla pulvinar eget nibh vitae tincidunt. Sed dapibus commodo lorem, in euismod ante vestibulum in. Cras id dui et ligula faucibus tempus id eget erat. Ut ultricies malesuada elit, nec venenatis orci pulvinar id. Aliquam tempor, sem in dictum consequat, lacus sapien placerat metus, ac faucibus risus sem nec magna. Nulla facilisi. Vestibulum porttitor venenatis leo, vitae laoreet enim cursus ut. Donec dignissim neque sollicitudin lacus euismod, vitae congue libero luctus.
-                    <br><br>
-                    Aliquam scelerisque posuere nulla, quis viverra velit venenatis a. In elit nibh, pharetra in sem nec, molestie ornare tellus. Nunc ac dui tristique, ornare nisi sit amet, semper tellus. Aenean ac neque ut nibh dignissim bibendum. Aenean finibus sed ante eu facilisis. Vestibulum nec turpis accumsan, feugiat lacus eget, gravida ex. Integer eu purus nibh. Morbi pellentesque ultrices ex, sed blandit ipsum fermentum iaculis. In nibh leo, blandit et lectus et, porta tempus velit. Nam erat dui, consequat non fermentum quis, condimentum quis ante.
-                    <br><br>
-                    Proin volutpat, sem in aliquam tempor, quam metus malesuada sem, nec sodales augue justo nec lacus. Aenean vulputate nibh purus, quis luctus neque fringilla nec. Phasellus a venenatis odio. Proin placerat dignissim nibh, a vehicula lorem consectetur at. Vivamus ut est tempus, congue lacus sed, feugiat eros. Sed in tristique lectus. Integer luctus nisl tristique tellus placerat, sed ultrices massa auctor. Aenean libero augue, dictum ut neque sed, condimentum porta metus. Morbi et cursus dui. Duis non orci leo. Duis accumsan diam ac nisl suscipit placerat. Aenean facilisis dolor tortor, ac finibus mauris semper quis. Curabitur euismod faucibus lobortis. Sed tristique imperdiet nibh, sed vulputate lacus dignissim sed. Sed tempor fermentum leo in finibus.
-                    </blockquote>
+            </div>
+            <div class='active'>
+                <img class='avatar' src="images/p3.png" />
+                <div class='column'>
+                    <div class='mailers-name'>
+                        YOUR WORDPRESS
+                    </div>
+                    <div class='mailers-title'>
+                        Last warning
+                    </div>
+                    <div class='mailers-text'>
+                        Your previous drupal site had 12 errors, 15 warnings. It sucks!
+                    </div>
+                </div>
+            </div>
+            <div class=''>
+                <img class='avatar' src="images/p2.png" />
+                <div class='column'>
+                    <div class='mailers-name'>
+                        JUNE RAY
+                    </div>
+                    <div class='mailers-title'>
+                        Re: That night
+                    </div>
+                    <div class='mailers-text'>
+                        Excepteur sint eccaecat cupidatat non proident, sunt in culpa.
+                    </div>
+                </div>
+            </div>
+            <div class=''>
+                <img class='avatar' src="images/p1.png" />
+                <div class='column'>
+                    <div class='mailers-name'>
+                        ANDREW CLEARWATER
+                    </div>
+                    <div class='mailers-title'>
+                        What about materials?
+                    </div>
+                    <div class='mailers-text'>
+                        Ut enim ad minim veniam, quls nostrud exercitation ullamco laboris nisl ut aliquip.
+                    </div>
+                </div>
+            </div>
+            <div class=''>
+                <img class='avatar' src="images/p6.png" />
+                <div class='column'>
+                    <div class='mailers-name'>
+                        CHRIS DUCK
+                    </div>
+                    <div class='mailers-title'>
+                        Donec sagittis dolor ut quam pharetra pretium varius in.
+                    </div>
+                    <div class='mailers-text'>
+                        Ut enim ad minim veniam, quls nostrud exercitation ullamco laboris nisl ut aliquip.
+                    </div>
+                </div>
+            </div>
+            <div class=''>
+                <img class='avatar' src="images/p6.png" />
+                <div class='column'>
+                    <div class='mailers-name'>
+                        Noname Noname
+                    </div>
+                    <div class='mailers-title'>
+                        A thousand miles
+                    </div>
+                    <div class='mailers-text'>
+                        Making my way downtown
+                        Walking fast, faces pass and I'm homebound
+                        Staring blankly ahead
+                    </div>
                 </div>
             </div>
         </div>
-        <script>
-            var show = document.getElementById('show-menu')
-            var shown = false;
-            var timeout;
-            show.addEventListener('click',()=>{
-                var menu = document.getElementById('menu')
-                var hide_menu = document.getElementById('hide-menu')
-                clearTimeout(timeout)
-                if(shown){
-                    menu.style.height = 0 + "px"
-                    timeout = setTimeout(()=>{
-                        menu.style.height = '';
-                    }, 2000)
-                } else {
-                    menu.style.height = 0 + "px"
-                    menu.style.height = hide_menu.offsetHeight + "px"
-                    timeout = setTimeout(()=>{
-                        menu.style.height = 'auto';
-                    }, 2000)
-                }
-                shown = !shown
+        <div id='read-mail'>
+            <div class='mail-title'>
+                <div>
+                    <div class='mail-subject'>
+                        Aliquam ac feugiat dolor
+                    </div>
+                    <div class='mail-from'>
+                        From <a href='#' class='from'>Eno Uqa</a> at
+                        <span class='date'>13 16pm, May 8, 2015</span>
+                    </div>
+                </div>
+                <div class='buttons'>
+                    <button type='button' class='btn'>Reply</button>
+                    <button type='button' class='btn'>Forward</button>
+                    <button type='button' class='btn'>Move to</button>
+                </div>
+            </div>
+            <div class='mail-text'>
+                <blockquote>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum diam ex, tempor sed sagittis
+                    eget, tincidunt eu urna. In libero mauris, aliquet ac iaculis at, molestie vel sem. Aenean aliquam
+                    volutpat tortor id pellentesque. Sed nec fringilla sem, sit amet efficitur neque. Nulla euismod nibh
+                    eu est tempus, in sollicitudin nunc placerat. Phasellus porttitor orci id libero sagittis cursus.
+                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed mi
+                    risus, maximus nec rutrum id, eleifend vitae arcu. Class aptent taciti sociosqu ad litora torquent
+                    per conubia nostra, per inceptos himenaeos. Integer ac turpis sed neque porta consequat vel quis
+                    ligula. Pellentesque eleifend orci vel ultricies vehicula. Fusce imperdiet tincidunt egestas. Ut id
+                    ipsum non ex sagittis convallis quis vel dui.
+                    <br><br>
+                    Suspendisse efficitur vehicula libero. Praesent sollicitudin ante ac pharetra mollis. Curabitur in
+                    diam id velit interdum pharetra quis quis nisi. Donec lorem tortor, rutrum vel posuere at, sodales
+                    quis elit. Phasellus pretium scelerisque velit, et auctor tortor ultrices at. Curabitur fringilla
+                    sem eu vestibulum dictum. Morbi vestibulum molestie ex, sed pretium sapien semper ac. Sed ac nunc
+                    vitae risus facilisis varius non eget nibh. Donec in auctor urna, sit amet commodo ipsum.
+                    <br><br>
+                    Morbi convallis augue risus, vitae vehicula lacus rutrum et. Pellentesque faucibus dolor ac nisi
+                    tempor aliquet. In bibendum ornare augue nec fringilla. Donec aliquet, lectus et pharetra dictum,
+                    magna dui ultrices eros, sit amet sollicitudin nunc erat at mauris. Nulla pulvinar eget nibh vitae
+                    tincidunt. Sed dapibus commodo lorem, in euismod ante vestibulum in. Cras id dui et ligula faucibus
+                    tempus id eget erat. Ut ultricies malesuada elit, nec venenatis orci pulvinar id. Aliquam tempor,
+                    sem in dictum consequat, lacus sapien placerat metus, ac faucibus risus sem nec magna. Nulla
+                    facilisi. Vestibulum porttitor venenatis leo, vitae laoreet enim cursus ut. Donec dignissim neque
+                    sollicitudin lacus euismod, vitae congue libero luctus.
+                    <br><br>
+                    Aliquam scelerisque posuere nulla, quis viverra velit venenatis a. In elit nibh, pharetra in sem
+                    nec, molestie ornare tellus. Nunc ac dui tristique, ornare nisi sit amet, semper tellus. Aenean ac
+                    neque ut nibh dignissim bibendum. Aenean finibus sed ante eu facilisis. Vestibulum nec turpis
+                    accumsan, feugiat lacus eget, gravida ex. Integer eu purus nibh. Morbi pellentesque ultrices ex, sed
+                    blandit ipsum fermentum iaculis. In nibh leo, blandit et lectus et, porta tempus velit. Nam erat
+                    dui, consequat non fermentum quis, condimentum quis ante.
+                    <br><br>
+                    Proin volutpat, sem in aliquam tempor, quam metus malesuada sem, nec sodales augue justo nec lacus.
+                    Aenean vulputate nibh purus, quis luctus neque fringilla nec. Phasellus a venenatis odio. Proin
+                    placerat dignissim nibh, a vehicula lorem consectetur at. Vivamus ut est tempus, congue lacus sed,
+                    feugiat eros. Sed in tristique lectus. Integer luctus nisl tristique tellus placerat, sed ultrices
+                    massa auctor. Aenean libero augue, dictum ut neque sed, condimentum porta metus. Morbi et cursus
+                    dui. Duis non orci leo. Duis accumsan diam ac nisl suscipit placerat. Aenean facilisis dolor tortor,
+                    ac finibus mauris semper quis. Curabitur euismod faucibus lobortis. Sed tristique imperdiet nibh,
+                    sed vulputate lacus dignissim sed. Sed tempor fermentum leo in finibus.
+                </blockquote>
+            </div>
+        </div>
+    </div>
+    <script>
+        var show = document.getElementById('show-menu')
+        var shown = false;
+        var timeout;
+        show.addEventListener('click', () => {
+            var menu = document.getElementById('menu')
+            var hide_menu = document.getElementById('hide-menu')
+            clearTimeout(timeout)
+            if (shown) {
+                menu.style.height = 0 + "px"
+                timeout = setTimeout(() => {
+                    menu.style.height = '';
+                }, 2000)
+            } else {
+                menu.style.height = 0 + "px"
+                menu.style.height = hide_menu.offsetHeight + "px"
+                timeout = setTimeout(() => {
+                    menu.style.height = 'auto';
+                }, 2000)
+            }
+            shown = !shown
 
-            })
-        </script>
-    </body>
+        })
+    </script>
+</body>
+
 </html>
