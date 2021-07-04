@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <title>Selfy</title>
+        <meta name="description" content="">
+</head>
+
+<body>
+    <header class="wrapper">
+        <a href="index.html" class="logo"><img src="http://make-lemonade.co/themes/selfy/img/logo@2x.png" alt="Logo" /></a>
+        <nav>
+            <select>
+                <option value='index.html'>
+                    Home
+                </option>
+                <option value='about.html'>About</option>
+                <option value='styles.html'>Styles</option>
+                <option value='gallery.html'>Gallery</option>
+                <option value='blog.html'>Blog</option>
+                <option selected value='contact.html'>Contact</option>
+            </select>
+            <ul class="nav" id="nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="styles.html">Styles</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li class="last"><a class="active" href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr class="">
+    <!-- /////////////////////////////////////// -->
+
+    <div class="main-container wrapper d-flex">
+        <div class="main-content">
+            <div>
+                <h1> Contact Me </h1>
+                <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, error.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, nostrum ipsum. Beatae, nulla iure! Accusamus placeat explicabo pariatur beatae nemo?</p>
+            </div>
+
+            <form id="contactform" action="#" method="get">
+                <input type="text" id="name" name="name" placeholder="What's your name">
+                <input type="email" id="email" name="email" placeholder="Email goes here">
+                <textarea id="message" name="message" placeholder="Whats this about?"></textarea>
+
+                <input name="button" class="btn" type="submit" value="Send Message" id="send"><br>
+            </form>
+
+        </div>
+
+        <aside class="right-aside">
+            <h2>Networks</h2>
+
+            <div class='row relative'>
+                <div class="icon">
+                    <div class="arrow"></div>
+                </div>
+                <a class='more' href="post.html"> Donec id elilit non mi porta gravida </a>
+            </div>
+            <div class='row relative'>
+                <div class="icon">
+                    <div class="arrow"></div>
+                </div>
+                <a class='more' href="post.html">Liamcorper nulla non metus auctor</a>
+            </div>
+            <div class='row relative'>
+                <div class="icon">
+                    <div class="arrow"></div>
+                </div>
+                <a class='more' href="post.html">Lorem ipsum dolor sit amet.</a>
+            </div>
+
+            <hr>
+
+            <p>Donec id elilit non mi porta gravida at eget metus. Donec ullamcorper nulla non metus auctor fringilla. Donec id elit non mi porta gravida at eget metus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor&nbsp;auctor.</p>
+            <div class='row relative'>
+                <div class="icon">
+                    <div class="arrow"></div>
+                </div>
+                <a class="more" href="styles.html">See the full theme styles</a>
+            </div>
+        </aside>
+    </div>
+    <footer class='wrapper'>
+        <div class="copyright">
+            <a href="index.html" class="logo-foot"><img src="http://make-lemonade.co/themes/selfy/img/logo@2x.png" alt="logo" /></a>
+            © Copyright Selfy 2013
+        </div>
+        <div class="">
+            <a href="#" class="social-link"><img src="http://make-lemonade.co/themes/selfy/img/icon-facebook@2x.png" alt="Facebook" /></a>
+            <a href="#" class="social-link"><img src="http://make-lemonade.co/themes/selfy/img/icon-twitter@2x.png" alt="Facebook" /></a>
+            <a href="#" class="social-link"><img src="http://make-lemonade.co/themes/selfy/img/icon-linkedin@2x.png" alt="Facebook" /></a>
+        </div>
+    </footer>
+    <script>
+        var select = document.getElementsByTagName('select')[0]
+        select.addEventListener('change', (e)=>{
+            location.href = e.currentTarget.value
+        })
+    </script>
+</body>
+
+</html>

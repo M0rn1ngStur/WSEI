@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>About</title>
+</head>
+
+  <body>
+    <header class="wrapper clearfix">
+      <a href="index.html" class="logo"><img src="images/logo.png" alt="Logo" /></a>
+      <nav>
+        <select>
+          <option value='index.html'>
+              Home
+          </option>
+          <option value='about.html' selected>About</option>
+          <option value='styles.html' >Styles</option>
+          <option value='gallery.html'>Gallery</option>
+          <option value='blog.html'>Blog</option>
+          <option value='contact.html'>Contact</option>
+        </select>
+        <ul class="nav" id="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a class="active" href="about.html">About</a></li>
+          <li><a href="styles.html">Styles</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li class="last"><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="main-container wrapper">
+      <div class="main-content ">
+        <img class="w-100 border-white" src="http://make-lemonade.co/themes/selfy/img/mock-small.jpg" alt="">
+        <h1>About Me</h1>
+        <p class="lead">
+          Praesent commodo cursus magna, venenatis vestibulum. Donec id elit non mi porta gravida at eget vel scelerisl consectetur etsie.
+        </p>
+        <div class="d-flex">
+          <div class="w-100" style='margin-right: 40px; min-width: 320px;'>
+            <p>
+              Donec id elit non mi porta gravida at eget metus. Donec ullamcorper nulla non metus auctor fringilla. Donec id elit non mi porta gravida at eget metus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
+            </p>
+            <p>
+              Donec id elit non mi porta gravida at eget metus. Donec ullamcorper nulla non metus auctor fringilla. Donec id elit non mi porta gravida at eget metus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.Sed posuere consectetur est at lobortis. Nullam id dolor id nibh ultricies vehicula ut id elit. Lorem ipsum dolor sit amet, consectetur rutrum fauci adipiscing elit.
+            </p>
+          </div>
+          <div class="w-100" style="min-width: 320px;">
+            <p>
+              Donec id elit non mi porta gravida at eget metus. Donec ullamcorper nulla non metus auctor fringilla. Donec id elit non mi porta gravida at eget metus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+            </p>
+            <p>
+              Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Donec ullamcorper nulla non metus auctor fringilla. Donec id elit non mi porta gravida at eget metus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class='wrapper'>
+			<div class="copyright">
+				<a href="index.html" class="logo-foot"><img src="http://make-lemonade.co/themes/selfy/img/logo@2x.png" alt="logo" /></a>
+				© Copyright Selfy 2013
+			</div>
+			<div class="">
+				<a href="#" class="social-link"><img src="http://make-lemonade.co/themes/selfy/img/icon-facebook@2x.png" alt="Facebook" /></a>
+				<a href="#" class="social-link"><img src="http://make-lemonade.co/themes/selfy/img/icon-twitter@2x.png" alt="Facebook" /></a>
+				<a href="#" class="social-link"><img src="http://make-lemonade.co/themes/selfy/img/icon-linkedin@2x.png" alt="Facebook" /></a>
+			</div>
+		</footer>
+		<script>
+			var select = document.getElementsByTagName('select')[0]
+			select.addEventListener('change', (e)=>{
+				location.href = e.currentTarget.value
+			})
+		</script>
+  </body>
+
+</html>
